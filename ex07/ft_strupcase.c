@@ -6,22 +6,29 @@
 /*   By: mac <sorungta@42bangkok.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 02:36:25 by mac               #+#    #+#             */
-/*   Updated: 2022/07/26 05:26:58 by mac              ###   ########.fr       */
+/*   Updated: 2022/07/27 04:08:32 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // #include <stdio.h>
 
+int	is_lowercase(char c)
+{
+	if ('a' <= c && c <= 'z')
+		return (1);
+	return (0);
+}
+
 char	*ft_strupcase(char *str)
 {
-	char	*head;
+	int	i;
 
-	head = str;
-	while (*str)
+	i = 0;
+	while (str[i])
 	{
-		if (*str >= 'a' && *str <= 'z')
-			*str -= 32;
-		++str;
+		if (is_lowercase(str[i]))
+			str[i] = str[i] - 32;
+		++i;
 	}
 	return (str);
 }
